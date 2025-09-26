@@ -3,686 +3,706 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Double Entry Bookkeeping - Interactive Handout</title>
+    <title>Form 2 Accounting Workbook</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.4;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            font-size: 12pt;
         }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto 20px auto;
+            padding: 20mm;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            page-break-after: always;
+        }
+
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
             text-align: center;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+            margin-bottom: 30px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 15px;
         }
+
         .header h1 {
-            margin: 0;
-            font-size: 2.2em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .student-info {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .info-field {
-            margin: 5px;
-        }
-        .info-field label {
+            font-size: 18pt;
             font-weight: bold;
-            color: #667eea;
+            margin-bottom: 10px;
         }
-        .section {
-            background: white;
+
+        .header h2 {
+            font-size: 14pt;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        h3 {
+            font-size: 14pt;
+            font-weight: bold;
+            margin: 20px 0 10px 0;
+            text-decoration: underline;
+        }
+
+        h4 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 15px 0 8px 0;
+        }
+
+        p {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 10px 0 10px 30px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        .definition-box {
+            border: 1px solid #000;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #f9f9f9;
+        }
+
+        .question-section {
             margin: 20px 0;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border-left: 6px solid #667eea;
-        }
-        .section-title {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
             padding: 15px;
-            margin: -25px -25px 20px -25px;
-            border-radius: 15px 15px 0 0;
-            font-size: 1.4em;
+            border: 2px solid #000;
+        }
+
+        .question-header {
             font-weight: bold;
-            display: flex;
-            align-items: center;
+            font-size: 13pt;
+            text-decoration: underline;
+            margin-bottom: 15px;
         }
-        .section-title::before {
-            content: "📚";
-            margin-right: 10px;
-            font-size: 1.2em;
+
+        .transaction-date {
+            font-weight: bold;
+            margin-top: 10px;
         }
-        .key-concept {
-            background: #f8f9ff;
-            border: 2px dashed #667eea;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 10px;
-        }
-        .fill-blank {
-            border-bottom: 2px solid #667eea;
-            min-width: 120px;
+
+        .answer-lines {
+            border-bottom: 1px solid #ccc;
+            height: 20px;
+            margin: 5px 0;
             display: inline-block;
-            margin: 0 5px;
-            padding: 0 5px;
-            background: rgba(102, 126, 234, 0.1);
+            min-width: 200px;
         }
-        .ledger-table {
+
+        .wide-answer-lines {
+            border-bottom: 1px solid #ccc;
+            height: 20px;
+            margin: 5px 0;
+            display: block;
             width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .ledger-table th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px;
-            text-align: center;
+
+        .reference-note {
+            font-style: italic;
+            margin: 10px 0;
+            text-align: right;
+        }
+
+        .exercise-number {
             font-weight: bold;
+            margin: 20px 0 10px 0;
         }
-        .ledger-table td {
+
+        .sub-question {
+            margin: 10px 0;
+        }
+
+        .note-box {
+            background-color: #fffacd;
             border: 1px solid #ddd;
             padding: 10px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .formula-box {
             text-align: center;
-            min-height: 30px;
-        }
-        .ledger-table .account-name {
-            background: #f8f9ff;
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 15px 0;
             font-weight: bold;
-            text-align: center;
-            font-size: 1.1em;
-            color: #667eea;
         }
-        .word-bank {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
+
+        ol {
+            margin: 10px 0 10px 30px;
         }
-        .word-bank h4 {
-            color: #2d3436;
-            margin: 0 0 10px 0;
-        }
-        .word {
-            display: inline-block;
-            background: white;
-            padding: 8px 15px;
-            margin: 5px;
-            border-radius: 20px;
-            border: 2px solid #e17055;
-            color: #2d3436;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .matching-activity {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 15px 0;
-        }
-        .match-column {
-            background: #f8f9ff;
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid #667eea;
-        }
-        .match-item {
-            background: white;
+
+        ol li {
             margin: 8px 0;
-            padding: 10px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .checkbox-activity {
-            margin: 15px 0;
+
+        .page-break {
+            page-break-before: always;
         }
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            margin: 8px 0;
-            padding: 10px;
-            background: #f8f9ff;
-            border-radius: 8px;
-        }
-        .checkbox-item input[type="checkbox"] {
-            margin-right: 10px;
-            transform: scale(1.2);
-        }
-        .reflection-box {
-            background: linear-gradient(135deg, #81ecec 0%, #74b9ff 100%);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            color: white;
-        }
-        .reflection-box h3 {
-            margin: 0 0 15px 0;
-            color: white;
-        }
-        .reflection-input {
-            width: 100%;
-            min-height: 80px;
-            padding: 10px;
-            border: none;
-            border-radius: 8px;
-            resize: vertical;
-            font-family: Arial, sans-serif;
-        }
-        .self-assessment {
-            background: #f8f9ff;
-            border: 2px solid #667eea;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-        }
-        .rating-scale {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0;
-            padding: 10px;
-            background: white;
-            border-radius: 8px;
-        }
-        .rating-options {
-            display: flex;
-            gap: 15px;
-        }
-        .rating-options label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        .rating-options input[type="radio"] {
-            margin-right: 5px;
-        }
-        .practice-box {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-        }
-        .drawing-space {
-            border: 2px dashed #667eea;
-            min-height: 100px;
-            margin: 15px 0;
-            padding: 10px;
-            background: #f8f9ff;
-            border-radius: 10px;
-        }
+
         @media print {
-            body { background: white; }
-            .section { page-break-inside: avoid; }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            
+            body {
+                background: white;
+            }
+        }
+
+        .blank-page {
+            border: 1px solid #ddd;
+            min-height: 250mm;
+            padding: 15mm;
+            margin: 10px 0;
+        }
+
+        .lined-paper {
+            background-image: repeating-linear-gradient(
+                transparent,
+                transparent 19px,
+                #ccc 19px,
+                #ccc 20px
+            );
+            min-height: 200mm;
+        }
+
+        .ledger-space {
+            background-image: repeating-linear-gradient(
+                transparent,
+                transparent 19px,
+                #ccc 19px,
+                #ccc 20px
+            );
+            min-height: 180mm;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .account-instruction {
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 13pt;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>📊 Double Entry Bookkeeping 📊</h1>
-        <p>Form 2 Accounting Interactive Handout</p>
-    </div>
-
-    <div class="student-info">
-        <div class="info-field">
-            <label>Name:</label> <span class="fill-blank" style="min-width: 200px;"></span>
-        </div>
-        <div class="info-field">
-            <label>Date:</label> <span class="fill-blank" style="min-width: 150px;"></span>
-        </div>
-        <div class="info-field">
-            <label>Class:</label> <span class="fill-blank" style="min-width: 100px;"></span>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Learning Objectives - What Will I Learn Today?</div>
-        
-        <div class="checkbox-activity">
-            <p><strong>By the end of this lesson, I will be able to:</strong></p>
-            <div class="checkbox-item">
-                <input type="checkbox" id="obj1">
-                <label for="obj1">Understand the basic principles of double entry bookkeeping</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="obj2">
-                <label for="obj2">Record transactions for assets and liabilities using T-accounts</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="obj3">
-                <label for="obj3">Apply double entry principles to expenses and income</label>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" id="obj4">
-                <label for="obj4">Record drawings transactions correctly</label>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">🏗️ Foundation Concepts - Fill in the Blanks</div>
-        
-        <div class="key-concept">
-            <p><strong>Double Entry Principle:</strong></p>
-            <p>For every transaction, there must be a <span class="fill-blank">_____________</span> entry and a <span class="fill-blank">_____________</span> entry of equal amounts.</p>
+    <!-- Page 1: Title and Introduction -->
+    <div class="page">
+        <div class="header">
+            <h1>DOUBLE-ENTRY BOOKKEEPING</h1>
+            <h2>Double-Entry Records for Expenses and Incomes</h2>
         </div>
 
-        <div class="word-bank">
-            <h4>🏦 Word Bank:</h4>
-            <span class="word">Debit</span>
-            <span class="word">Credit</span>
-            <span class="word">Asset</span>
-            <span class="word">Liability</span>
-            <span class="word">Capital</span>
-            <span class="word">Expense</span>
-            <span class="word">Income</span>
-            <span class="word">Drawings</span>
-        </div>
-
-        <div class="practice-box">
-            <p><strong>💡 Remember:</strong> DEBIT = <span class="fill-blank">_____________</span> side, CREDIT = <span class="fill-blank">_____________</span> side</p>
-        </div>
-
-       <div class="concept-activity">
-    <h4>💡 Golden Rule of Double Entry</h4>
-    <p><strong>What you buy/pay for = RECEIVES (Debit)</strong><br>
-    <strong>How you pay for it = GIVES (Credit)</strong></p>
-
-    <div class="example-exercise">
-        <h5>📝 Example Exercise</h5>
-        <p><em>Ajay bought furniture worth $2,000 by cheque.</em></p>
+        <h3>Income</h3>
+        <p>Income is the money that a business or individual earns. This can come from various sources, such as:</p>
         <ul>
-            <li><strong>What did he pay for?</strong> Furniture → <span class="highlight">Debit Furniture A/C</span></li>
-            <li><strong>How did he pay?</strong> By cheque (Bank) → <span class="highlight">Credit Bank A/C</span></li>
+            <li><strong>Sales Revenue:</strong> Money received from selling goods or services.</li>
+            <li><strong>Interest Income:</strong> Money earned from savings accounts or investments.</li>
+            <li><strong>Rent:</strong> Money received from leasing property.</li>
         </ul>
-        <p><strong>Ledger Entry:</strong> Debit Furniture $2,000, Credit Bank $2,000</p>
-    </div>
-</div>
 
-    <div class="section">
-        <div class="section-title">🏢 Section 1: Assets and Liabilities (Walkthrough 2.2)</div>
-        
-        <div class="key-concept">
-            <p><strong>Scenario:</strong> Ajay began business on January 1. Let's record his transactions!</p>
+        <h3>Expense</h3>
+        <p>Expense is the money that a business or individual spends. This includes costs incurred to operate or maintain activities, such as:</p>
+        <ul>
+            <li><strong>Rent:</strong> Money paid for using a space (like an office).</li>
+            <li><strong>Salaries:</strong> Money paid to employees for their work.</li>
+            <li><strong>Utilities:</strong> Payments for services like electricity, water, and internet.</li>
+        </ul>
+
+        <p><em>In simple terms, income is what you earn, and expenses are what you spend.</em></p>
+
+        <div class="note-box">
+            <strong>An account is opened for each type of expense and income.</strong><br>
+            Double entry must be applied:<br>
+            <strong>Dr</strong> the receiving account<br>
+            <strong>Credit</strong> the giving account
         </div>
 
-        <h3>📝 Transaction Analysis - Complete the Table</h3>
-        <table class="ledger-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Transaction</th>
-                    <th>Account to DEBIT</th>
-                    <th>Account to CREDIT</th>
-                    <th>Amount ($)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2024 Jan 1</td>
-                    <td>Ajay invested $80,000 as capital</td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td>80,000</td>
-                </tr>
-                <tr>
-                    <td>2024 Jan 2</td>
-                    <td>Bought fixtures and equipment costing $30,000 by cheque</td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td>30,000</td>
-                </tr>
-                <tr>
-                    <td>2024 Jan 3</td>
-                    <td>Received short-term loan of $10,000 from AB Loans</td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td>10,000</td>
-                </tr>
-                <tr>
-                    <td>2024 Jan 5</td>
-                    <td>Bought motor vehicle $9,000 by cheque</td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td>9,000</td>
-                </tr>
-                <tr>
-                    <td>2024 Jan 6</td>
-                    <td>Received long-term loan $5,000 from sister Mallika</td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td>5,000</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>📊 Practice T-Accounts - Complete Ajay's Ledger</h3>
-        
-       <!-- Ajay's Ledger Accounts (T-Accounts with Date, Details, $ under Dr/Cr) -->
-<div style="margin: 20px 0;">
-
-  <!-- Capital Account -->
-  <table class="ledger-table">
-    <tr><td colspan="6" class="account-name">_____________________ Account</td></tr>
-    <tr><th colspan="3">Dr</th><th colspan="3">Cr</th></tr>
-    <tr>
-      <th>Date</th><th>Details</th><th>$</th>
-      <th>Date</th><th>Details</th><th>$</th>
-    </tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-  </table>
-
-  <!-- Bank Account -->
-  <table class="ledger-table">
-    <tr><td colspan="6" class="account-name">_____________________ Account</td></tr>
-    <tr><th colspan="3">Dr</th><th colspan="3">Cr</th></tr>
-    <tr>
-      <th>Date</th><th>Details</th><th>$</th>
-      <th>Date</th><th>Details</th><th>$</th>
-    </tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-  </table>
-
-  <!-- Fixtures Account -->
-  <table class="ledger-table">
-    <tr><td colspan="6" class="account-name">_____________________________ Account</td></tr>
-    <tr><th colspan="3">Dr</th><th colspan="3">Cr</th></tr>
-    <tr>
-      <th>Date</th><th>Details</th><th>$</th>
-      <th>Date</th><th>Details</th><th>$</th>
-    </tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-  </table>
-
-  <!-- Motor Vehicle Account -->
-  <table class="ledger-table">
-    <tr><td colspan="6" class="account-name">_____________________ Account</td></tr>
-    <tr><th colspan="3">Dr</th><th colspan="3">Cr</th></tr>
-    <tr>
-      <th>Date</th><th>Details</th><th>$</th>
-      <th>Date</th><th>Details</th><th>$</th>
-    </tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-  </table>
-
-  <!-- Loan Account -->
-  <table class="ledger-table">
-    <tr><td colspan="6" class="account-name">______________ Account</td></tr>
-    <tr><th colspan="3">Dr</th><th colspan="3">Cr</th></tr>
-    <tr>
-      <th>Date</th><th>Details</th><th>$</th>
-      <th>Date</th><th>Details</th><th>$</th>
-    </tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-  </table>
-
-      <!-- Loan Account -->
-  <table class="ledger-table">
-    <tr><td colspan="6" class="account-name">______________ Account</td></tr>
-    <tr><th colspan="3">Dr</th><th colspan="3">Cr</th></tr>
-    <tr>
-      <th>Date</th><th>Details</th><th>$</th>
-      <th>Date</th><th>Details</th><th>$</th>
-    </tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-  </table>
-    
-</div>
-
-        <div class="section-title">💰 Section 2: Expenses and Income (Walkthrough 2.3)</div>
-        
-        <div class="key-concept">
-            <p><strong>New Rule:</strong> The account <span class="fill-blank">receiving</span> the money is <span class="fill-blank">debited</span>, and the account <span class="fill-blank">giving</span> the money is <span class="fill-blank">credited</span>.</p>
-        </div>
-
-        <h3>📋 Extended Transaction Analysis</h3>
-        <table class="ledger-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Transaction</th>
-                    <th>Account to DEBIT</th>
-                    <th>Account to CREDIT</th>
-                    <th>Amount ($)</th>
-                    <th>Type</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Jan 1</td>
-                    <td>Paid rent $400 by cheque</td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td>400</td>
-                    <td>Expense</td>
-                </tr>
-                <tr>
-                    <td>Jan 2</td>
-                    <td>Paid insurance $250 by cheque</td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td>250</td>
-                    <td>Expense</td>
-                </tr>
-                <tr>
-                    <td>Jan 5</td>
-                    <td>Paid motor expenses $50 by cheque</td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td>50</td>
-                    <td>Expense</td>
-                </tr>
-                <tr>
-                    <td>Jan 7</td>
-                    <td>Received rent income $95</td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td><span class="fill-blank">_________</span></td>
-                    <td>95</td>
-                    <td>Income</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>🔄 Sort the Accounts</h3>
-        <div class="matching-activity">
-            <div class="match-column">
-                <h4>💸 EXPENSE ACCOUNTS</h4>
-                <div class="match-item">• <span class="fill-blank">_________</span></div>
-                <div class="match-item">• <span class="fill-blank">_________</span></div>
-                <div class="match-item">• <span class="fill-blank">_________</span></div>
-            </div>
-            <div class="match-column">
-                <h4>💵 INCOME ACCOUNTS</h4>
-                <div class="match-item">• <span class="fill-blank">_________</span></div>
-                <div class="match-item">• <span class="fill-blank">_________</span></div>
-                <div class="match-item">• <span class="fill-blank">_________</span></div>
-            </div>
-        </div>
-
-        <div class="word-bank">
-            <h4>💼 Account Bank:</h4>
-            <span class="word">Rent Expense</span>
-            <span class="word">Insurance</span>
-            <span class="word">Motor Expenses</span>
-            <span class="word">Rent Income</span>
-            <span class="word">Sales</span>
-            <span class="word">Interest Income</span>
+        <div class="question-section">
+            <div class="question-header">QUESTION</div>
+            <strong>2017</strong><br>
+            <div class="transaction-date">Jan 1</div> Ajay began business. He opened a business bank account and invested $80 000 as capital<br>
+            <div class="transaction-date">1</div> He paid rent of premises, $400, by cheque<br>
+            <div class="transaction-date">2</div> Fixtures and fittings costing $30 000 were bought and paid for by cheque.<br>
+            <div class="transaction-date">3</div> He paid insurance, $250, by cheque<br>
+            <div class="transaction-date">3</div> A short term-loan of $10 000 was received from AB Loans<br>
+            <div class="transaction-date">5</div> A motor vehicle costing $9 000 was bought and paid for by cheque<br>
+            <div class="transaction-date">5</div> He paid motor expenses, $50, by cheque<br>
+            <div class="transaction-date">6</div> A long-term loan of $5 000 was received from Ajay's sister Malika<br>
+            <div class="transaction-date">7</div> Part of the premises were rented out to another business and a cheque for $95 was received.<br><br>
+            
+            <strong>Required</strong><br>
+            Enter these transactions in Ajay's ledger.
         </div>
     </div>
 
-    <div class="section">
-        <div class="section-title">🏠 Section 3: Drawings (When Owner Takes Value)</div>
+    <!-- Page 2: Ledger Answer Pages for First Ajay Question -->
+    <div class="page page-break">
+        <div class="header">
+            <h2>AJAY'S LEDGER ACCOUNTS</h2>
+        </div>
+                
+        <div class="ledger-space"></div>
+    </div>
+
+    <!-- Page 3: More Ledger Space -->
+    <div class="page page-break">
+        <div class="ledger-space"></div>
+    </div>
+
+    <!-- Page 4: Final Ledger Space for First Question -->
+    <div class="page page-break">
+        <div class="ledger-space"></div>
+    </div>
+
+    <!-- Page 5: Test Yourself -->
+    <div class="page page-break">
+        <div class="question-section">
+            <div class="question-header">Test yourself</div>
+            <strong>1</strong> For each of the following transactions, state the name of the account which will be debited and the name of the account which will be credited.<br><br>
+
+            <div class="sub-question">
+                <strong>a</strong> Paid rent by cheque<br>
+                <div class="wide-answer-lines"></div>
+                <div class="wide-answer-lines"></div>
+            </div>
+
+            <div class="sub-question">
+                <strong>b</strong> Bought machinery and paid by cheque<br>
+                <div class="wide-answer-lines"></div>
+                <div class="wide-answer-lines"></div>
+            </div>
+
+            <div class="sub-question">
+                <strong>c</strong> Received commission by cheque for work done for another business<br>
+                <div class="wide-answer-lines"></div>
+                <div class="wide-answer-lines"></div>
+            </div>
+
+            <div class="sub-question">
+                <strong>d</strong> Repaid, by cheque, money borrowed from XYZ Loan Co<br>
+                <div class="wide-answer-lines"></div>
+                <div class="wide-answer-lines"></div>
+            </div>
+        </div>
+
+        <h3>DOUBLE ENTRY RECORDS FOR DRAWINGS</h3>
         
-        <div class="key-concept">
-            <p><strong>Drawings Definition:</strong> When the owner takes <span class="fill-blank">_________</span> from the business for <span class="fill-blank">_________</span> use.</p>
-            <p><strong>Types of Drawings:</strong></p>
+        <div class="definition-box">
+            <strong>Drawings Definition:</strong> Value taken by the owner from the business for personal use.<br>
+            <strong>-Form of Drawings:</strong> Money, non-current assets, or goods.<br>
+            <strong>- Recording Drawings:</strong> Any Drawings - Debit drawings account, credit cash/bank or relevant asset account.<br>
+            <strong>- At the End of the Financial Year:</strong> Drawings account transferred to the Debit of the capital account, reducing the amount owed by the business to the owner.
+        </div>
+
+        <div class="note-box">
+            <strong>NOTE:</strong><br>
+            When goods are withdrawn, the purchases account is credited, not the goods account.<br>
+            This is because the goods were originally purchased for resale, and the amount of goods available for resale is reduced when the goods are taken by the owner.
+        </div>
+    </div>
+
+    <!-- Page 6: Drawings Questions -->
+    <div class="page page-break">
+        <div class="question-section">
+            <div class="question-header">QUESTION</div>
+            <strong>1</strong> For each of the following transactions, state the name of the account which will be debited and the name of the account which will be credited.<br><br>
+
+            <div class="sub-question">
+                <strong>a</strong> The owner of the business invested more money into the business.<br>
+                <div class="wide-answer-lines"></div>
+                <div class="wide-answer-lines"></div>
+            </div>
+
+            <div class="sub-question">
+                <strong>b</strong> The owner of the business took an unused motor vehicle for personal use.<br>
+                <div class="wide-answer-lines"></div>
+                <div class="wide-answer-lines"></div>
+            </div>
+
+            <div class="sub-question">
+                <strong>c</strong> The owner of the business took goods for personal use.<br>
+                <div class="wide-answer-lines"></div>
+                <div class="wide-answer-lines"></div>
+            </div>
+        </div>
+
+        <h3>Balancing Ledger Accounts</h3>
+        <p>Balancing a ledger account is an essential task in bookkeeping to ensure that the debits and credits are equal. Here are the steps to balance a ledger account:</p>
+
+        <h4>Instructions to Balance a Ledger Account</h4>
+        <ol>
+            <li><strong>Prepare Your Ledger</strong>
+                <ul>
+                    <li>Gather all transactions related to the account you want to balance.</li>
+                    <li>Ensure you have the opening balance for the period.</li>
+                </ul>
+            </li>
+            <li><strong>Record Transactions</strong>
+                <ul>
+                    <li>List all debits (money coming in) and credits (money going out) in the ledger account.</li>
+                    <li>Each transaction should have a date, description, and amount.</li>
+                </ul>
+            </li>
+            <li><strong>Calculate Total Debits</strong>
+                <ul>
+                    <li>Add up all the debit entries.</li>
+                    <li>Write the total at the bottom of the debit side.</li>
+                </ul>
+            </li>
+            <li><strong>Calculate Total Credits</strong>
+                <ul>
+                    <li>Add up all the credit entries.</li>
+                    <li>Write the total at the bottom of the credit side.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Page 7: Balancing Instructions Continued -->
+    <div class="page page-break">
+        <ol start="5">
+            <li><strong>Determine the Difference</strong>
+                <ul>
+                    <li>Subtract the total credits from the total debits:
+                        <ul>
+                            <li>If total debits > total credits, you have a debit balance.</li>
+                            <li>If total credits > total debits, you have a credit balance.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Enter the Balance</strong>
+                <ul>
+                    <li>Write the difference as a balance on the side that is lower (debit or credit) to equalize the two sides.</li>
+                    <li>Label this entry as "Balance c/d" (carried down) with the date.</li>
+                </ul>
+            </li>
+            <li><strong>Close the Account</strong>
+                <ul>
+                    <li>At the end of the period, carry the balance forward to the next period.</li>
+                    <li>Write this as "Balance b/d" (brought down) in the new period's ledger.</li>
+                </ul>
+            </li>
+            <li><strong>Review for Accuracy</strong>
+                <ul>
+                    <li>Double-check all calculations and entries for accuracy.</li>
+                    <li>Ensure that the total debits equal total credits after entering the balance.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="reference-note">
+            Practice with Bank Account on Page 18 Coucom.
+        </div>
+
+        <h3>DOUBLE-ENTRY RECORDS FOR SALES, PURCHASES, AND RETURNS</h3>
+
+        <h4>1. Double Entry Accounting Principle</h4>
+        <ul>
+            <li>Every transaction affects at least two accounts.</li>
+            <li>Debits must equal credits, maintaining the accounting equation:
+                <ul>
+                    <li><strong>Assets = Liabilities + Equity</strong></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>2. Sales Transactions</h4>
+        <strong>Sales of Goods: For Cash or Cheque</strong> – money is received immediately as the goods are sold in the form of cash or a cheque
+        <ul>
+            <li>Debit: Cash or Bank Account (increase in assets)</li>
+            <li>Credit: Sales Revenue (increase in income)</li>
+        </ul>
+
+        <div class="definition-box">
+            <strong>Example Entry:</strong><br>
+            If goods are sold for cash $100:
             <ul>
-                <li>💰 Money (cash or cheque)</li>
-                <li>🚗 Non-current assets (vehicles, equipment)</li>
-                <li>📦 Goods from inventory</li>
+                <li>Debit Cash Account $100</li>
+                <li>Credit Sales Revenue Account: $100</li>
+            </ul>
+            If goods are sold, a cheque of $300 is received:
+            <ul>
+                <li>Debit Bank Account $300</li>
+                <li>Credit Sales Revenue Account: $300</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page 8: Sales Continued -->
+    <div class="page page-break">
+        <strong>Sales of Goods: On Credit</strong> – goods sold but money to be received at a later date
+        <ul>
+            <li>Debit: Trade receivable (increase in assets)</li>
+            <li>Credit: Sales Revenue (increase in income)</li>
+        </ul>
+
+        <div class="question-section">
+            <div class="question-header">QUESTION</div>
+            <strong>2017</strong><br>
+            <div class="transaction-date">Jan 16</div> Ajay sold goods, $175, for cash<br>
+            <div class="transaction-date">17</div> Ajay sold goods $770, on credit to Prerna<br>
+            <div class="transaction-date">20</div> Prerna gave Ajay a cheque for $500 on account<br><br>
+            
+            Enter these transactions in Ajay's ledger.
+        </div>
+
+        <div class="account-instruction">Draw the required accounts</div>
+        <div class="ledger-space"></div>
+    </div>
+
+    <!-- Page 9: Purchases -->
+    <div class="page page-break">
+        <h4>3. Purchases Transactions</h4>
+        <strong>Purchases of Goods:</strong>
+        <ul>
+            <li>Debit: Purchases Account (increase in expenses)</li>
+            <li>Credit: Cash or Trade Payable (decrease in assets or increase in liabilities)</li>
+        </ul>
+
+        <p><strong>Goods purchased and paid for in cash or by cheque</strong> - money is paid immediately as the goods are purchased in the form of cash or a cheque</p>
+
+        <div class="definition-box">
+            <strong>Example Entry:</strong><br>
+            If goods are purchased for $50 Cash:
+            <ul>
+                <li>Debit Purchases: $50</li>
+                <li>Credit Cash $50</li>
+            </ul>
+            If goods are purchased and paid for by cheque $50:
+            <ul>
+                <li>Debit Purchases Account: $50</li>
+                <li>Credit Bank Account $50</li>
             </ul>
         </div>
 
-        <h3>🎯 TEST YOURSELF 2.3 - Transaction Practice</h3>
-        <div class="practice-box">
-            <p><strong>For each transaction, identify the DEBIT and CREDIT accounts:</strong></p>
-            
-            <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 8px;">
-                <p><strong>a) The owner invested more money in the business</strong></p>
-                <p>DEBIT: <span class="fill-blank" style="min-width: 150px;">_____________</span></p>
-                <p>CREDIT: <span class="fill-blank" style="min-width: 150px;">_____________</span></p>
-            </div>
-
-            <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 8px;">
-                <p><strong>b) The owner took an unused motor vehicle for personal use</strong></p>
-                <p>DEBIT: <span class="fill-blank" style="min-width: 150px;">_____________</span></p>
-                <p>CREDIT: <span class="fill-blank" style="min-width: 150px;">_____________</span></p>
-            </div>
-
-            <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 8px;">
-                <p><strong>c) The owner took goods for personal use</strong></p>
-                <p>DEBIT: <span class="fill-blank" style="min-width: 150px;">_____________</span></p>
-                <p>CREDIT: <span class="fill-blank" style="min-width: 150px;">_____________</span></p>
-            </div>
-        </div>
-
-        <div class="key-concept">
-            <p><strong>💡 Important Rule:</strong> At year-end, drawings are transferred to the <span class="fill-blank">_________</span> account, which <span class="fill-blank">reduces</span> the owner's equity.</p>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">🎨 Create Your Own Examples</div>
-        
-        <div class="drawing-space">
-            <p><strong>Design a T-Account for "Office Supplies" and show two transactions:</strong></p>
-            <p>1. Bought supplies $200 by cheque</p>
-            <p>2. Owner took supplies $50 for home use</p>
-        </div>
-
-        <div class="practice-box">
-            <p><strong>🔗 Make Connections:</strong> Create an analogy to explain double entry bookkeeping to a friend:</p>
-            <p>"Double entry bookkeeping is like <span class="fill-blank" style="min-width: 200px;">_________________</span></p>
-            <p>because <span class="fill-blank" style="min-width: 300px;">_________________________________</span></p>
-        </div>
-    </div>
-
-    <div class="reflection-box">
-        <h3>🤔 Reflection Time</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <div>
-                <p><strong>What I learned today:</strong></p>
-                <textarea class="reflection-input" placeholder="Write 3 key things you learned..."></textarea>
-            </div>
-            <div>
-                <p><strong>What I'm still confused about:</strong></p>
-                <textarea class="reflection-input" placeholder="Any concepts you need help with..."></textarea>
-            </div>
-        </div>
-    </div>
-
-    <div class="self-assessment">
-        <h3>⭐ Self-Assessment - Rate Your Understanding</h3>
-        
-        <div class="rating-scale">
-            <span><strong>Double Entry Principles:</strong></span>
-            <div class="rating-options">
-                <label><input type="radio" name="understanding1" value="1"> 😕 Need Help</label>
-                <label><input type="radio" name="understanding1" value="2"> 🤔 Getting There</label>
-                <label><input type="radio" name="understanding1" value="3"> 😊 Confident</label>
-                <label><input type="radio" name="understanding1" value="4"> 🎯 Expert</label>
-            </div>
-        </div>
-
-        <div class="rating-scale">
-            <span><strong>T-Account Recording:</strong></span>
-            <div class="rating-options">
-                <label><input type="radio" name="understanding2" value="1"> 😕 Need Help</label>
-                <label><input type="radio" name="understanding2" value="2"> 🤔 Getting There</label>
-                <label><input type="radio" name="understanding2" value="3"> 😊 Confident</label>
-                <label><input type="radio" name="understanding2" value="4"> 🎯 Expert</label>
-            </div>
-        </div>
-
-        <div class="rating-scale">
-            <span><strong>Identifying Debits & Credits:</strong></span>
-            <div class="rating-options">
-                <label><input type="radio" name="understanding3" value="1"> 😕 Need Help</label>
-                <label><input type="radio" name="understanding3" value="2"> 🤔 Getting There</label>
-                <label><input type="radio" name="understanding3" value="3"> 😊 Confident</label>
-                <label><input type="radio" name="understanding3" value="4"> 🎯 Expert</label>
-            </div>
-        </div>
-    </div>
-
-   <div class="section">
-    <div class="section-title">📝 Practice: PREP </div>
-    
-    <div class="exam-question">
-        <p><strong>Redo the following exam question:</strong></p>
-        <p>Mona started a business on 1 January 2004. The following are her transactions for
-        the first two weeks of trading:</p>
+        <strong>Purchases of Goods: On Credit</strong> – goods bought but money to be paid at a later date
         <ul>
-            <li>January 1: Capital of $20 000 was paid into a business bank account</li>
-            <li>January 1: Paid rent, $500, by cheque</li>
-            <li>January 2: Bought goods, $3 300, on credit from Mohamed</li>
-            <li>January 4: Returned goods, $100, to Mohamed</li>
-            <li>January 7: Sold goods on credit to Aswan Traders $1 700</li>
-            <li>January 9: Received $120 commission in cash</li>
+            <li>Debit: Purchases (increase in assets)</li>
+            <li>Credit: Trade Payable (increase in income)</li>
         </ul>
-        <p><strong>Task:</strong> Enter the above transactions in the ledger accounts of Mona.</p>
+
+        <div class="question-section">
+            <div class="question-header">Question</div>
+            <strong>2017</strong><br>
+            <div class="transaction-date">Jan 9</div> Ajay bought goods, $650, on credit from Kolkata & Co<br>
+            <div class="transaction-date">10</div> Ajay bought goods $150, and paid by cheque<br>
+            <div class="transaction-date">13</div> Ajay paid the amount owing to Kolkata & Co by cheque.<br><br>
+            
+            Enter these transactions in Ajay's ledger.
+        </div>
+
+        <div class="account-instruction">Draw the required accounts</div>
     </div>
-</div>
 
-
-    <div style="text-align: center; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px;">
-        <h3>🎉 Great Work Today! 🎉</h3>
-        <p>You've learned the foundation of all accounting - double entry bookkeeping!</p>
+    <!-- Page 10: Purchases Answer Space -->
+    <div class="page page-break">
+        <div class="ledger-space"></div>
     </div>
 
+    <!-- Page 11: Returns -->
+    <div class="page page-break">
+        <h4>4. Returns Transactions</h4>
+        <h4>Definitions</h4>
+        <ul>
+            <li><strong>Sales Returns/Returns Inwards</strong> refer to goods that customers return to the seller after a purchase, usually due to defects, dissatisfaction, or incorrect items.</li>
+            <li><strong>Purchases Returns/Returns outwards</strong> occur when a business returns goods it has purchased from suppliers, typically due to defects, excess inventory, or incorrect items.</li>
+        </ul>
+
+        <strong>Sales Returns:</strong>
+        <ul>
+            <li>Debit: Sales Returns Account (decrease in income)</li>
+            <li>Credit: Trade Receivable (decrease in assets)</li>
+        </ul>
+
+        <div class="definition-box">
+            <strong>Example Entry:</strong><br>
+            If a customer returns goods worth $20:
+            <ul>
+                <li>Debit Sales Returns: $20</li>
+                <li>Credit Trade Receivable: $20</li>
+            </ul>
+        </div>
+
+        <strong>Purchases Returns/ returns outwards:</strong>
+        <ul>
+            <li>Debit: Trade Payable account (decrease in liabilities)</li>
+            <li>Credit: Purchases Returns Account (decrease in expenses)</li>
+        </ul>
+
+        <div class="definition-box">
+            <strong>Example Entry:</strong><br>
+            If goods worth $15 are returned to the supplier:
+            <ul>
+                <li>Debit Trade Payable: $15</li>
+                <li>Credit Purchases Returns: $15</li>
+            </ul>
+        </div>
+
+        <div class="question-section">
+            <div class="question-header">QUESTION</div>
+            <strong>2017</strong><br>
+            <div class="transaction-date">Jan 21</div> Ajay sold goods, $245, on credit to Xavier Traders<br>
+            <div class="transaction-date">22</div> Xavier Traders returned damaged goods $55, to Ajay<br>
+            <div class="transaction-date">23</div> Ajay purchased goods, $820, on credit from Varum<br>
+            <div class="transaction-date">25</div> Xavier Traders, paid their account by cheque<br>
+            <div class="transaction-date">27</div> Ajay returned faulty goods, $44, to Varum<br>
+            <div class="transaction-date">30</div> Ajay gave Varum a cheque for $700 on account.<br><br>
+            
+            Enter these transactions in Ajay's ledger.
+        </div>
+
+        <div class="account-instruction">Draw the required accounts</div>
+    </div>
+
+    <!-- Page 12: Returns Answer Space -->
+    <div class="page page-break">
+        <div class="ledger-space"></div>
+    </div>
+
+    <!-- Page 13: Returns Answer Space Continued -->
+    <div class="page page-break">
+        <div class="ledger-space"></div>
+    </div>
+
+    <!-- Page 14: Carriage -->
+    <div class="page page-break">
+        <h4>5. Importance of Double Entry System</h4>
+        <ul>
+            <li>Provides a complete record of financial transactions.</li>
+            <li>Helps in detecting errors and ensuring accuracy.</li>
+            <li>Facilitates the preparation of financial statements.</li>
+        </ul>
+
+        <h4>6. Summary</h4>
+        <ul>
+            <li>Each sale and purchase impacts both revenue and expense accounts.</li>
+            <li>Returns adjust both sales and purchases, ensuring accurate reporting in financial statements.</li>
+        </ul>
+
+        <h3>Double-entry records for Carriage inwards and carriage outwards</h3>
+        
+        <h4>Definitions</h4>
+        <p><strong>Carriage</strong> – Is the cost of transporting goods</p>
+
+        <h4>Types of Carriages</h4>
+        <strong>Carriage Inwards</strong><br>
+        -It is the cost of bringing the goods to the business.<br><br>
+        <strong>Carriage outwards</strong><br>
+        -It is the cost of delivering the goods to the customer.
+
+        <h4>Accounting Treatment</h4>
+        <strong>Journal Entries:</strong>
+        <ul>
+            <li>Debit: Carriage Inwards Account (increases expenses)</li>
+            <li>Credit: Cash or Accounts Payable (decreases assets or increases liabilities)</li>
+        </ul>
+
+        <div class="definition-box">
+            <strong>Example</strong><br>
+            If carriage inwards is $100:
+            <ul>
+                <li>Entry:
+                    <ul>
+                        <li>Debit Carriage Inwards: $100</li>
+                        <li>Credit Cash/Accounts Payable: $100</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h4>Carriage Outwards</h4>
+        <strong>Accounting Treatment</strong>
+        <ul>
+            <li>Debit: Carriage Outwards Account (increases expenses)</li>
+            <li>Credit: Cash or Trade Payable (decreases assets or increases liabilities)</li>
+        </ul>
+    </div>
+
+    <!-- Page 15: Carriage Continued -->
+    <div class="page page-break">
+        <div class="definition-box">
+            <strong>Example</strong><br>
+            If carriage outwards is $50:
+            <ul>
+                <li>Entry:
+                    <ul>
+                        <li>Debit Carriage Outwards: $50</li>
+                        <li>Credit Cash/Trade Payable: $50</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h4>Summary</h4>
+        <ul>
+            <li>Carriage Inwards increases expenses related to incoming goods, affecting the cost of goods sold.</li>
+            <li>Carriage Outwards increases expenses related to delivering goods, affecting overall operating expenses.</li>
+            <li>Both are recorded as debits in their respective accounts and credits to cash or accounts payable.</li>
+        </ul>
+
+        <div class="question-section">
+            <div class="question-header">QUESTION</div>
+            <div class="exercise-number">1.</div> Explain the meaning of the term: credit purchases<br>
+            <div class="wide-answer-lines"></div>
+            <div class="wide-answer-lines"></div>
+            <div class="wide-answer-lines"></div>
+
+            <div class="exercise-number">2.</div> State reasons why it may be necessary to return goods to the supplier.<br>
+            <div class="wide-answer-lines"></div>
+            <div class="wide-answer-lines"></div>
+            <div class="wide-answer-lines"></div>
+
+            <div class="exercise-number">3.</div> State an alternative name for: Sales returns and purchases returns<br>
+            <div class="wide-answer-lines"></div>
+            <div class="wide-answer-lines"></div>
+
+            <div class="exercise-number">4.</div> Explain the difference between carriage inwards and carriage outwards<br>
+            <div class="wide-answer-lines"></div>
+            <div class="wide-answer-lines"></div>
+            <div class="wide-answer-lines"></div>
+            <div class="wide-answer-lines"></div>
+        </div>
+    </div>
+
+    <!-- Page 16: Blank Answer Sheet -->
+    <div class="page page-break">
+        <div class="header">
+            <h2>ADDITIONAL ANSWER SHEET</h2>
+        </div>
+        <div class="lined-paper"></div>
+    </div>
+
+    <!-- Page 17: Another Blank Answer Sheet -->
+    <div class="page page-break">
+        <div class="header">
+            <h2>ADDITIONAL ANSWER SHEET</h2>
+        </div>
+        <div class="lined-paper"></div>
+    </div>
 </body>
 </html>
